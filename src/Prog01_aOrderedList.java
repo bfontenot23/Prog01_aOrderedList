@@ -43,7 +43,7 @@ public class Prog01_aOrderedList {
         boolean validFile = false;
         String filename, filepath;
         do {
-            System.out.print("\nEnter input filename: ");
+            System.out.print("\nEnter output filename: ");
             filename = in.next();
             filepath = "./src/" + filename;
             file = new File(filepath);
