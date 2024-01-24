@@ -16,11 +16,12 @@ public class Prog01_aOrderedList {
         do {
             System.out.print("\nEnter input filename: ");
             filename = in.next();
-            filepath = "./src/" + filename;
+            if(!filename.startsWith(":\\", 1)) filepath = ".\\src\\" + filename;
+            else filepath = filename;
             file = new File(filepath);
             if(!file.exists())
             {
-                System.out.printf("\n File specified <%s> does not exist in the src folder.  Would you like to continue? <Y/N> ", filename);
+                System.out.printf("\nFile specified <%s> does not exist in the src folder.  Would you like to continue? <Y/N> ", filename);
                 if(in.next().equals("N"))
                 {
                     throw new FileNotFoundException();
@@ -45,11 +46,12 @@ public class Prog01_aOrderedList {
         do {
             System.out.print("\nEnter output filename: ");
             filename = in.next();
-            filepath = "./src/" + filename;
+            if(!filename.startsWith(":\\", 1)) filepath = ".\\src\\" + filename;
+            else filepath = filename;
             file = new File(filepath);
-            if(!file.exists())
+            if(!file.exists() || !file.canWrite())
             {
-                System.out.printf("\n File specified <%s> does not exist in the src folder.  Would you like to continue? <Y/N> ", filename);
+                System.out.printf("\nFile specified <%s> does not exist in the src folder or is unable to be written to.  Would you like to continue? <Y/N> ", filename);
                 if(in.next().equals("N"))
                 {
                     throw new FileNotFoundException();
@@ -93,5 +95,8 @@ public class Prog01_aOrderedList {
             }
             else done = true;
         }while(!done);
+
+        outputFile.write(cars.toString());
+        outputFile.close();
     }
 }

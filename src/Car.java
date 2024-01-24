@@ -34,6 +34,7 @@ public class Car {
         {
 
         }*/
+        if(this.year < other.getYear()) return 0;
 
         return 1;
     }
