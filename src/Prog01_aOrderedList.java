@@ -9,7 +9,6 @@ public class Prog01_aOrderedList {
 
     public static Scanner getInputFile() throws FileNotFoundException
     {
-        //File file = new File(userPrompt);
         File file;
         boolean validFile = false;
         String filename, filepath;
@@ -39,7 +38,6 @@ public class Prog01_aOrderedList {
 
     public static PrintWriter getOutputFile() throws FileNotFoundException
     {
-        //File file = new File(userPrompt);
         File file;
         boolean validFile = false;
         String filename, filepath;
@@ -70,8 +68,8 @@ public class Prog01_aOrderedList {
     public static void main(String[] args)
     {
 
-        Scanner file = null;
-        PrintWriter outputFile = null;
+        Scanner file;
+        PrintWriter outputFile;
         try
         {
             file = getInputFile();
@@ -92,6 +90,7 @@ public class Prog01_aOrderedList {
 
                 //add cars to aOrderedList here
                 if(lineSeparated[0].equals("A")) cars.add(new Car(lineSeparated[1],Integer.parseInt(lineSeparated[2]),Integer.parseInt(lineSeparated[3])));
+                if(lineSeparated[0].equals("D")) cars.remove(Integer.parseInt(lineSeparated[1]));
             }
             else done = true;
         }while(!done);
