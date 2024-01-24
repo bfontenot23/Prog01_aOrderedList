@@ -1,4 +1,4 @@
-public class Car {
+public class Car implements Comparable<Car>{
 
     private String make;
     private int year;
@@ -26,17 +26,21 @@ public class Car {
         return price;
     }
 
-    // 0 = this car is worse.  1 = this car is better
     public int compareTo(Car other)
     {
-        /*
-        if(this.make < other.getMake())
+        if(this.make.compareTo(other.getMake()) < 0)
         {
-
-        }*/
-        if(this.year < other.getYear()) return 0;
-
-        return 1;
+            return this.make.compareTo(other.getMake());
+        }
+        else if(this.make.compareTo(other.getMake()) == 0 && Integer.compare(this.year, other.getYear()) < 0)
+        {
+            return Integer.compare(this.year, other.getYear());
+        }
+        else if(this.make.compareTo(other.getMake()) == 0 && Integer.compare(this.year, other.getYear()) == 0)
+        {
+            return this.make.compareTo(other.getMake());
+        }
+        else return 1;
     }
 
     public String toString()
