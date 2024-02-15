@@ -3,10 +3,16 @@ import java.util.Comparator;
 
 public class aOrderedList {
 
+    /*
+        TODO: CHANGE ALL REFERENCES TO CAR CLASS TO "COMPARABLE" CLASS
+              CHANGE ALL CAR RELATED VARIABLES TO GENERALIZED OBJECT VARIABLES
+    */
+
     private final int SIZEINCREMENTS = 20;
     private Car[] oList;
     private int listSize;
     private int numObjects;
+    private int curr;
 
     public aOrderedList()
     {
@@ -20,7 +26,7 @@ public class aOrderedList {
         if(numObjects%20 == 0) this.oList = Arrays.copyOf(this.oList, this.oList.length + SIZEINCREMENTS);
         this.oList[numObjects] = newCar;
         numObjects++;
-        Arrays.sort(this.oList, Comparator.nullsLast(Comparator.naturalOrder()));
+        Arrays.sort(this.oList, Comparator.nullsLast(Comparator.naturalOrder())); //TODO: what is this lmao
     }
 
     public String toString()
@@ -49,7 +55,7 @@ public class aOrderedList {
             else
             {
                 System.out.println("! There was no car at the specified index.  Returning the first car instead.");
-                return oList[0];
+                return oList[0]; //TODO: make sure first car is not also null
             }
         }
         catch (IndexOutOfBoundsException e)

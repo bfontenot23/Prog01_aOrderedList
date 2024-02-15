@@ -67,7 +67,6 @@ public class Prog01_aOrderedList {
 
     public static void main(String[] args)
     {
-
         Scanner file;
         PrintWriter outputFile;
         try
@@ -79,7 +78,7 @@ public class Prog01_aOrderedList {
             return;
         }
         aOrderedList cars = new aOrderedList();
-
+        
 
         boolean done = false;
         do {
@@ -88,6 +87,8 @@ public class Prog01_aOrderedList {
                 String line = file.nextLine();
                 String[] lineSeparated = line.split(",");
 
+
+                //TODO: Error handling for if parameters are missing (extra params will be ignored)
                 //add cars to aOrderedList here
                 if(lineSeparated[0].equals("A")) cars.add(new Car(lineSeparated[1],Integer.parseInt(lineSeparated[2]),Integer.parseInt(lineSeparated[3])));
                 if(lineSeparated[0].equals("D")) cars.remove(Integer.parseInt(lineSeparated[1]));

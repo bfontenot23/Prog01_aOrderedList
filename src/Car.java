@@ -26,6 +26,8 @@ public class Car implements Comparable<Car>{
         return price;
     }
 
+
+//TODO: fix whatever the fuck i was doing here
     public int compareTo(Car other)
     {
         if(this.make.compareTo(other.getMake()) < 0)
