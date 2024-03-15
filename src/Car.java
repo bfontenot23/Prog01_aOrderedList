@@ -1,8 +1,20 @@
+/**
+ * Car class creates car objects with make, year, and price as parameters
+ *
+ * CSC 1351 Programming Project No 1
+ 7
+ * Section 002
+ *
+ * @author Beau Fontenot
+ * @since 03-17-24
+ *
+ */
+
 public class Car implements Comparable<Car>{
 
-    private String make;
-    private int year;
-    private int price;
+    private final String make;
+    private final int year;
+    private final int price;
 
     public Car(String make, int year, int price)
     {
@@ -27,22 +39,10 @@ public class Car implements Comparable<Car>{
     }
 
 
-//TODO: fix whatever the fuck i was doing here
     public int compareTo(Car other)
     {
-        if(this.make.compareTo(other.getMake()) < 0)
-        {
-            return this.make.compareTo(other.getMake());
-        }
-        else if(this.make.compareTo(other.getMake()) == 0 && Integer.compare(this.year, other.getYear()) < 0)
-        {
-            return Integer.compare(this.year, other.getYear());
-        }
-        else if(this.make.compareTo(other.getMake()) == 0 && Integer.compare(this.year, other.getYear()) == 0)
-        {
-            return this.make.compareTo(other.getMake());
-        }
-        else return 1;
+        if(this.make.compareTo(other.getMake())==0) return Integer.compare(this.year, other.getYear());
+        else return this.make.compareTo(other.getMake());
     }
 
     public String toString()

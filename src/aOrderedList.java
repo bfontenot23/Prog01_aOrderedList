@@ -1,15 +1,22 @@
+/**
+ * aOrderedList class for creating the ordered list objects
+ *
+ * CSC 1351 Programming Project No 1
+ 7
+ * Section 002
+ *
+ * @author Beau Fontenot
+ * @since 03-17-24
+ *
+ */
+
 import java.util.Arrays;
 import java.util.Comparator;
 
 public class aOrderedList {
 
-    /*
-        TODO: CHANGE ALL REFERENCES TO CAR CLASS TO "COMPARABLE" CLASS
-              CHANGE ALL CAR RELATED VARIABLES TO GENERALIZED OBJECT VARIABLES
-    */
-
     private final int SIZEINCREMENTS = 20;
-    private Car[] oList;
+    private Comparable[] oList;
     private int listSize;
     private int numObjects;
     private int curr;
@@ -18,27 +25,27 @@ public class aOrderedList {
     {
         this.numObjects = 0;
         this.listSize = SIZEINCREMENTS;
-        this.oList = new Car[SIZEINCREMENTS];
+        this.oList = new Comparable[SIZEINCREMENTS];
+        this.curr = -1; //because the list starts at index 0, the current value will be -1 until this.next() is called.
     }
 
-    public void add(Car newCar)
+    public void add(Comparable newObj)
     {
-        if(numObjects%20 == 0) this.oList = Arrays.copyOf(this.oList, this.oList.length + SIZEINCREMENTS);
-        this.oList[numObjects] = newCar;
+        if(numObjects%20 == 0) { this.oList = Arrays.copyOf(this.oList, this.oList.length + SIZEINCREMENTS); listSize = this.oList.length; }
+        this.oList[numObjects] = newObj;
         numObjects++;
-        Arrays.sort(this.oList, Comparator.nullsLast(Comparator.naturalOrder())); //TODO: what is this lmao
+        Arrays.sort(this.oList, Comparator.nullsLast(Comparator.naturalOrder())); //Comparator.nullsLast(Comparator.naturalOrder()) forces null values to the end of the array
     }
 
     public String toString()
     {
         StringBuilder output = new StringBuilder();
-        for(Car car: this.oList)
+        for(Comparable obj: this.oList)
         {
-            if(car!=null)
+            if(obj!=null)
             {
-                output.append("[");
-                output.append(car);
-                output.append("]");
+                output.append(obj);
+                output.append("\n");
             }
         }
 
@@ -47,22 +54,18 @@ public class aOrderedList {
 
     public int size() { return numObjects; }
 
-    public Car get(int index)
+    public Comparable get(int index) throws IndexOutOfBoundsException
     {
-        try
+        if(index < oList.length && index >= 0)
         {
             if(oList[index] != null) return oList[index];
             else
             {
-                System.out.println("! There was no car at the specified index.  Returning the first car instead.");
-                return oList[0]; //TODO: make sure first car is not also null
+                System.out.println("! There was no object at the specified index.");
+                return null;
             }
         }
-        catch (IndexOutOfBoundsException e)
-        {
-            System.out.println("! The specified index is out of bounds!  Returning the first car instead.");
-            return oList[0];
-        }
+        else throw new IndexOutOfBoundsException();
     }
 
     public boolean isEmpty()
@@ -70,18 +73,42 @@ public class aOrderedList {
         return oList[0] == null;
     }
 
-    public void remove(int index)
+    public void remove(int index) throws IndexOutOfBoundsException
     {
-        //TODO: ensure that the object at the specified index isn't null to begin with.
-        for(int i = index; i < oList.length; i++)
+        if(index < oList.length && index >= 0)
         {
-            if(i+1 != oList.length)
+            if(oList[index] != null)
             {
-                if (oList[i + 1] != null) oList[i] = oList[i + 1];
-                else oList[i] = null;
+                for (int i = index; i < oList.length; i++)
+                {
+                    if (i + 1 != oList.length)
+                    {
+                        if (oList[i + 1] != null) oList[i] = oList[i + 1];
+                        else oList[i] = null;
+                    }
+                }
+                numObjects--;
+                if (numObjects % 20 == 0) { this.oList = Arrays.copyOf(this.oList, this.oList.length - SIZEINCREMENTS); listSize = this.oList.length; }
+
+                Arrays.sort(this.oList, Comparator.nullsLast(Comparator.naturalOrder())); //Comparator.nullsLast(Comparator.naturalOrder()) forces null values to the end of the array
             }
+            else System.out.println("! The object at the specified index does not exist.");
         }
-        numObjects--;
-        if(numObjects%20==0) this.oList = Arrays.copyOf(this.oList, this.oList.length - SIZEINCREMENTS);
+        else throw new IndexOutOfBoundsException();
+    }
+
+    public void reset(){ curr = -1; }
+
+    public Comparable next(){
+        curr++;
+        return this.get(curr);
+    }
+
+    public boolean hasNext(){
+        return oList[curr+1]!=null;
+    }
+
+    public void remove(){
+        if(curr>=0) remove(curr);
     }
 }
