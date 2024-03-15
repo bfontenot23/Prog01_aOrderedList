@@ -194,6 +194,8 @@ public class Prog01_aOrderedList {
 
         outputFile.write(cars.toString());
         outputFile.close();
+
+        in.close();
     }
 }
 
