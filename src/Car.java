@@ -47,6 +47,8 @@ public class Car implements Comparable<Car>{
 
     public String toString()
     {
-        return String.format("Make: %s, Year: %d, Price: %d", this.make, this.year, this.price);
+        String temp = String.format( "$%,d", this.price );
+        String price = String.format("%-13s%7s%n", "Price:", temp);
+        return String.format("\nMake: %14s\nYear: %14d\n%s", this.make, this.year, price);
     }
 }

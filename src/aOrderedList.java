@@ -40,12 +40,12 @@ public class aOrderedList {
     public String toString()
     {
         StringBuilder output = new StringBuilder();
+        output.append(String.format("Number of cars:%7d\n", numObjects));
         for(Comparable obj: this.oList)
         {
             if(obj!=null)
             {
                 output.append(obj);
-                output.append("\n");
             }
         }
 

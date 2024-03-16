@@ -1,21 +1,85 @@
-BMW, 2008, 32100
-Cadillac, 1989, 14500
-Chevrolet, 1977, 27200
-Fiat, 1972, 16500
-Ford, 2016, 4200
-Ford, 2016, 44300
-Honda, 2009, 10000
-Infiniti, 1974, 28000
-Jaguar, 1969, 29200
-Jaguar, 1988, 8200
-Lexus, 2005, 7000
-Mazda, 1998, 21300
-Mini, 1965, 25400
-Mitsubishi, 1989, 7700
-Peugeot, 1992, 19200
-Suzuki, 1973, 23800
-Suzuki, 1981, 25700
-Suzuki, 2002, 26100
-Toyota, 1999, 1800
-Volkswagen, 2009, 23200
-Volvo, 1963, 16100
+Number of cars:     21
+
+Make:            BMW
+Year:           2008
+Price:       $32,100
+
+Make:       Cadillac
+Year:           1989
+Price:       $14,500
+
+Make:      Chevrolet
+Year:           1977
+Price:       $27,200
+
+Make:           Fiat
+Year:           1972
+Price:       $16,500
+
+Make:           Ford
+Year:           2016
+Price:        $4,200
+
+Make:           Ford
+Year:           2016
+Price:       $44,300
+
+Make:          Honda
+Year:           2009
+Price:       $10,000
+
+Make:       Infiniti
+Year:           1974
+Price:       $28,000
+
+Make:         Jaguar
+Year:           1969
+Price:       $29,200
+
+Make:         Jaguar
+Year:           1988
+Price:        $8,200
+
+Make:          Lexus
+Year:           2005
+Price:        $7,000
+
+Make:          Mazda
+Year:           1998
+Price:       $21,300
+
+Make:           Mini
+Year:           1965
+Price:       $25,400
+
+Make:     Mitsubishi
+Year:           1989
+Price:        $7,700
+
+Make:        Peugeot
+Year:           1992
+Price:       $19,200
+
+Make:         Suzuki
+Year:           1973
+Price:       $23,800
+
+Make:         Suzuki
+Year:           1981
+Price:       $25,700
+
+Make:         Suzuki
+Year:           2002
+Price:       $26,100
+
+Make:         Toyota
+Year:           1999
+Price:        $1,800
+
+Make:     Volkswagen
+Year:           2009
+Price:       $23,200
+
+Make:          Volvo
+Year:           1963
+Price:       $16,100
